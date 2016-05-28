@@ -13,3 +13,9 @@ RUN mkdir /temp && cd /temp \
     && git checkout 2.0 \
     && ./build.sh --confirm && mv bin/phantomjs /usr/local/bin \
     && cd / && rm -rf /temp
+    
+RUN apt-get update -y && apt-get upgrade -y && apt-get -f install -y
+RUN apt-get install -y curl \
+    && curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+
+RUN apt-get install -y nodejs
